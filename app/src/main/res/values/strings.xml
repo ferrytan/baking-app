@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Baking App</string>
+    <string name="label_retry">Tap to Retry</string>
+    <string name="title_activity_step_list">Step Lists</string>
+    <string name="title_activity_step_detail">Recipe Steps</string>
+    <string name="label_ingredients">Ingredients</string>
+    <string name="label_steps">Steps</string>
+    <string name="label_ingredients_each">\u2022 %1$s %2$s of %3$s\n</string>
+    <string name="label_step_each">%1$s. %2$s</string>
+    <string name="label_section_tab">Step %d</string>
+    <string name="label_servings">for %d servings</string>
+    <string name="label_no_recipe_to_show">No recipe to show</string>
+    <string name="label_no_ingredients_to_show">-</string>
+    <string name="label_add_to_homescreen_success">Recipe successfully added to home screen widget</string>
 </resources>

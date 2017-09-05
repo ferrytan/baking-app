@@ -17,9 +17,7 @@ import retrofit2.Retrofit;
 
 @Singleton
 @Component(modules = {ApplicationModule.class, NetworkModule.class})
-public interface NetworkComponent {
-    // downstream components need these exposed with the return type
-    // method name does not really matter
+public interface AppComponent {
     Retrofit retrofit();
     Context getApplicationContext();
     SharedPreferences getSharedPreferences();

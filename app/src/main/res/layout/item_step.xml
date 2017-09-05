@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:background="@drawable/bg_step">
+    <TextView
+        android:id="@+id/txvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Introduction"
+        android:layout_centerVertical="true"
+        android:textStyle="bold"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/imgVideoAvailable"
+        />
+    <ImageView
+        android:id="@+id/imgVideoAvailable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_video_available"
+        android:layout_alignParentRight="true"/>
+</RelativeLayout>

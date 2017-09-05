@@ -2,8 +2,8 @@ package com.meetferrytan.bakingapp;
 
 import android.app.Application;
 
-import com.meetferrytan.bakingapp.data.component.DaggerNetworkComponent;
-import com.meetferrytan.bakingapp.data.component.NetworkComponent;
+import com.meetferrytan.bakingapp.data.component.AppComponent;
+import com.meetferrytan.bakingapp.data.component.DaggerAppComponent;
 import com.meetferrytan.bakingapp.data.module.ApplicationModule;
 import com.meetferrytan.bakingapp.data.module.NetworkModule;
 
@@ -12,18 +12,18 @@ import com.meetferrytan.bakingapp.data.module.NetworkModule;
  */
 
 public class BakingApplication extends Application {
-    private static NetworkComponent sNetworkComponent;
+    private static AppComponent sAppComponent;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        sNetworkComponent = DaggerNetworkComponent.builder()
+        sAppComponent = DaggerAppComponent.builder()
                 .applicationModule(new ApplicationModule(this))
                 .networkModule(new NetworkModule(BuildConfig.BASE_URL))
                 .build();
     }
 
-    public static NetworkComponent getNetworkComponent() {
-        return sNetworkComponent;
+    public static AppComponent getAppComponent() {
+        return sAppComponent;
     }
 }

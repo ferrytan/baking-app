@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    android:id="@+id/txvTitle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:text="Ingredients"
+    android:textStyle="bold"
+    android:padding="16dp"
+    android:background="@color/colorAccent"
+    android:textColor="@color/white"
+    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"/>

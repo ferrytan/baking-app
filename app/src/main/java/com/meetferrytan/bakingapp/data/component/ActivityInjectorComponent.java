@@ -1,6 +1,9 @@
 package com.meetferrytan.bakingapp.data.component;
 
 import com.meetferrytan.bakingapp.data.util.ActivityScope;
+import com.meetferrytan.bakingapp.presentation.recipelist.RecipeListActivity;
+import com.meetferrytan.bakingapp.presentation.stepdetail.StepDetailFragment;
+import com.meetferrytan.bakingapp.presentation.steplist.StepListActivity;
 
 import dagger.Component;
 
@@ -9,7 +12,9 @@ import dagger.Component;
  */
 
 @ActivityScope
-@Component(dependencies = NetworkComponent.class)
+@Component(dependencies = AppComponent.class)
 public interface ActivityInjectorComponent {
-
+    void inject (RecipeListActivity recipeListActivity);
+    void inject (StepListActivity stepListActivity);
+    void inject (StepDetailFragment stepDetailFragment);
 }
