@@ -18,6 +18,6 @@ public class StepDetailPresenter extends BasePresenter<StepDetailContract.View>
 
     @Override
     public void updateData(Step step) {
-        getView().displayData(step.getVideoUrl(), step.getDescription());
+        getView().displayData(step.getVideoUrl(), step.getDescription(), step.getThumbnailUrl());
     }
 }

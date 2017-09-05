@@ -10,7 +10,7 @@ import com.meetferrytan.bakingapp.presentation.base.BaseContract;
 public class StepDetailContract {
 
     interface View extends BaseContract.View{
-        void displayData(String videoUrl, String description);
+        void displayData(String videoUrl, String description, String imageThumbnailUrl);
     }
 
     interface Presenter extends BaseContract.Presenter<View>{

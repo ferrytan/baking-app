@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.exoplayer2.DefaultLoadControl;
 import com.google.android.exoplayer2.DefaultRenderersFactory;
 import com.google.android.exoplayer2.ExoPlaybackException;
@@ -54,6 +55,8 @@ public class StepDetailFragment extends BaseFragment<StepDetailPresenter>
     TextView txvDescription;
     @BindView(R.id.imgNoVideo)
     ImageView imgNoVideo;
+    @BindView(R.id.imgThumbnail)
+    ImageView imgThumbnail;
 
     private SimpleExoPlayer mExoPlayer;
     private static MediaSessionCompat mMediaSession;
@@ -120,8 +123,8 @@ public class StepDetailFragment extends BaseFragment<StepDetailPresenter>
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
+    public void onStop() {
+        super.onStop();
 
         releasePlayer();
         mMediaSession.setActive(false);
@@ -138,8 +141,12 @@ public class StepDetailFragment extends BaseFragment<StepDetailPresenter>
     }
 
     @Override
-    public void displayData(String videoUrl, String description) {
+    public void displayData(String videoUrl, String description, String imageThumbnailUrl) {
         txvDescription.setText(description);
+        Glide.with(getActivity())
+                .load(imageThumbnailUrl)
+                .error(R.drawable.img_recipe)
+                .into(imgThumbnail);
         initializePlayer(videoUrl);
     }
 

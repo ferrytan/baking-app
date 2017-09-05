@@ -5,8 +5,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.meetferrytan.bakingapp.R;
 import com.meetferrytan.bakingapp.data.entity.Recipe;
 
@@ -52,6 +54,8 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
         TextView txvRecipeName;
         @BindView(R.id.txvServings)
         TextView txvServings;
+        @BindView(R.id.imgThumbnail)
+        ImageView imgThumbnail;
 
         public RecipeListViewHolder(View itemView) {
             super(itemView);
@@ -61,6 +65,10 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
         public void bindView(final Recipe recipe){
             txvRecipeName.setText(recipe.getName());
             txvServings.setText(String.format(mContext.getString(R.string.label_servings), recipe.getServings()));
+            Glide.with(mContext)
+                    .load(recipe.getImage())
+                    .error(R.drawable.img_recipe)
+                    .into(imgThumbnail);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
