@@ -2,6 +2,10 @@ package com.meetferrytan.bakingapp.presentation.recipelist;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.annotation.VisibleForTesting;
+import android.support.test.espresso.IdlingResource;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -13,6 +17,7 @@ import com.meetferrytan.bakingapp.BakingApplication;
 import com.meetferrytan.bakingapp.R;
 import com.meetferrytan.bakingapp.data.component.DaggerActivityInjectorComponent;
 import com.meetferrytan.bakingapp.data.entity.Recipe;
+import com.meetferrytan.bakingapp.data.idlingresource.BakingIdlingResource;
 import com.meetferrytan.bakingapp.presentation.base.BaseActivity;
 import com.meetferrytan.bakingapp.presentation.steplist.StepListActivity;
 
@@ -31,6 +36,9 @@ public class RecipeListActivity extends BaseActivity<RecipeListPresenter>
     ProgressBar loader;
     @BindView(R.id.txvRetry)
     TextView txvRetry;
+
+    @Nullable
+    private BakingIdlingResource idlingResource;
 
     @Override
     protected void initComponent() {
@@ -84,5 +92,14 @@ public class RecipeListActivity extends BaseActivity<RecipeListPresenter>
         });
 
         recyclerview.setAdapter(adapter);
+    }
+
+    @VisibleForTesting
+    @NonNull
+    public IdlingResource getIdlingResource() {
+        if (idlingResource == null) {
+            idlingResource = new BakingIdlingResource();
+        }
+        return idlingResource;
     }
 }

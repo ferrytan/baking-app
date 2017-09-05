@@ -29,7 +29,7 @@ public class StepDetailActivity extends AppCompatActivity {
     public static final String BUNDLE_SELECTED_STEP_ID = "selected_step_id";
     @BindView(R.id.toolbar)
     Toolbar toolbar;
-    @BindView(R.id.container)
+    @BindView(R.id.viewpager)
     ViewPager viewPager;
     @BindView(R.id.sliding_tabs)
     TabLayout slidingTabs;
